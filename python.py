@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 numlist = [int()]
 
@@ -7,7 +8,7 @@ def Syracuse(num = int()):
     y = []
     flight_time = 0
     while num != 1:
-    
+        
         #verifie si la valeur tester cycle (4,2,1)
         if num in numlist:
             print("La valeur cycle déjà")
@@ -26,18 +27,24 @@ def Syracuse(num = int()):
                 flight_time += 1
                 y.append(num)
             #fin conjoncture
-            
-        x.append(flight_time)
+                
+            x.append(flight_time)
         
-        plt.plot(x, y, '-.')
+        plt.rcParams['axes.prop_cycle'] = plt.cycler(color=['r'])
+        plt.plot(x, y, '-.',)
+        plt.xlabel('Temp de vol')
+        plt.ylabel('Valeur testé')
+        plt.pause(1e-5)
 
-    
 def main():
-    
+    incr = 0
+    n = 1
     while True:
-        n = int(input("Entré une valeur entière"))
+        incr += 1
+        n += incr
+        print(str(n))
         Syracuse(n)
-        plt.show()
-        plt.close()
+        
+        plt.gca().clear()
     
 main()
