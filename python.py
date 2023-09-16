@@ -10,7 +10,7 @@ def Syracuse(num = int()):
     while num != 1:
         
         #verifie si la valeur tester cycle (4,2,1)
-        if num in numlist:
+        if num in numlist or num % num == 1 and num % 2 == 0:
             print("La valeur cycle déjà")
             return
         else:
@@ -31,7 +31,7 @@ def Syracuse(num = int()):
             x.append(flight_time)
         
         plt.rcParams['axes.prop_cycle'] = plt.cycler(color=['r'])
-        plt.plot(x, y, '-.',)
+        plt.plot(x, y, '-',)
         plt.xlabel('Temp de vol')
         plt.ylabel('Valeur testé')
         plt.pause(1e-5)
